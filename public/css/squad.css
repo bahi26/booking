@@ -1,0 +1,237 @@
+@font-face {
+    font-family: Helvetica;
+    src: url(fonts/Helvetica Neue LT Arabic.ttf);
+}
+
+@font-face {
+    font-family: Mosalas;
+    src: url(fonts/A Mosalas.ttf);
+}
+
+
+*{
+   font-family: Helvetica !important;
+}
+
+h2{
+   font-family: Mosalas !important;
+}
+
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+/*  rightBody  */
+
+.rightBody {
+        margin-left: 10%;
+}
+
+
+/*  leftBody  */
+
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#cssmenu {
+    width: 180px;
+   /* width: 13%;*/
+    z-index: 10;
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+#cssmenu ul {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background: #ffffff;
+    background: -moz-linear-gradient(bottom, #f0f0f0, #ffffff);
+    background: -webkit-linear-gradient(bottom, #f0f0f0, #ffffff);
+    background: -o-linear-gradient(bottom, #f0f0f0, #ffffff);
+    background: -ms-linear-gradient(bottom, #f0f0f0, #ffffff);
+    background: linear-gradient(to top, #f0f0f0, #ffffff);
+}
+
+#cssmenu ul li {
+    display: block;
+    border-bottom: 1px solid #cccccc;
+}
+
+#cssmenu ul li.active {
+    border-bottom: 0;
+}
+
+#cssmenu ul li:last-child {
+    border-bottom: 0;
+}
+
+#cssmenu ul li a {
+    display: block;
+    padding: 14px 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #444444;
+}
+
+#cssmenu ul li.active {
+    left: -8px;
+    width: 194px;
+    padding: 2px;
+    background: black;
+    background: black;
+    background: black;
+    background:black;
+    background: black;
+    background: black;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+#cssmenu ul li.active > a {
+    padding: 12px 12px 12px 16px;
+    border-left: 1px dashed #de8886;
+    border-top: 1px dashed #de8886;
+    border-bottom: 1px dashed #de8886;
+    color: #ffffff;
+    text-shadow: 0 1px 1px #8c2726;
+}
+
+#cssmenu ul li.active:after {
+    position: absolute;
+    right: -16px;
+    top: 7px;
+    width: 31.526911934581186px;
+    height: 31.526911934581186px;
+    background: black;
+    background: black;
+    background: black;
+    background: black;
+    background: black;
+    background: black;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: "";
+}
+
+#cssmenu ul li.active:before {
+    position: absolute;
+    right: -12px;
+    top: 9px;
+    z-index: 10;
+    width: 28.526911934581186px;
+    height: 28.526911934581186px;
+        background-color: black;
+    border-right: 1px dashed #e9afae;
+    border-top: 1px dashed #e9afae;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: "";
+}
+
+#cssmenu ul li.active a:after {
+    position: absolute;
+    bottom: -7px;
+    left: -11px;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid #333030;
+    content: "";
+}
+
+.userImg,.logoImg{
+        width: 70px;
+    margin-top: 10px;
+    margin-left: 45px;
+}
+.userName{
+    margin-left: 40px;
+    font-family: cursive;
+        margin-top: 10px;
+}
+.logoImg{
+    margin-bottom: 10px;
+}
+
+.header{
+    height: 25%
+}
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:2px solid #f00;
+}
+
+
+.circle{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+        margin-bottom: 8px;
+}
+
+.leftLabel{
+        margin-left: 21%;
+}
+
+.rightLabel{
+      margin-left: 5%;
+}
+
+.serviceName{
+        margin-left:44px;
+}
+
+.Service{
+            margin-top: 15%;
+    margin-bottom: 6%;
+}
+
+.pager{
+    margin: 6% 0;
+}
+
+.nextbtn{
+        margin-left: 5%;
+}
+
+.question{
+    margin-top: 24px
+}
+
+.leftLabelPage2{
+    margin-left: 19%;
+}
+.submitbtn{
+}
