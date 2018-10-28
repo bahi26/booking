@@ -16,7 +16,6 @@ class CreateMealIngredientsTable extends Migration
         Schema::create('meal_ingredients', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quantity');
-
             $table->integer('ingredient_id')->unsigned();
             $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
             $table->integer('meal_id')->unsigned();
