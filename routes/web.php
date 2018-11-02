@@ -45,13 +45,15 @@ Route::get('/createEmployee','EmployeeController@create');
 Route::post('/createEmployee','EmployeeController@create');
 
 Route::get('/viewExercise','ExerciseController@view');
-
 Route::get('/createExercise','ExerciseController@create');
 Route::post('/createExercise','ExerciseController@create');
 Route::get('/assign',['as'=>'assign','uses'=>'ExerciseController@get_users']);
 Route::post('/assign','ExerciseController@assign');
 Route::get('/editExercise/{id}','ExerciseController@edit');
 Route::post('/editExercise/{id}',['as'=>'editExercise','uses'=>'ExerciseController@update']);
+
+Route::get('/viewReport',['as'=>'report','uses'=>'reportController@allExercise']);
+Route::get('/viewReport/{id}','reportController@dailyExercise');
 
 Route::get('/viewExtras','ExtraController@view');
 Route::get('/createExtra','ExtraController@create');

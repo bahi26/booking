@@ -60,6 +60,7 @@ class ExerciseController extends Controller
      */
     public function show($id)
     {
+
         $exercise=DB::table('exercises')->where('id',$id)->get();
         $data = array('exercise' => $exercise);
         return view('Exercise.edit',$data);
@@ -113,7 +114,6 @@ class ExerciseController extends Controller
             return;
         if(empty($request->exercise_id))
             return;
-        DB::table('exercise_bookings')->where([['booking_id','=',$request->user_id]])->delete();
         DB::table('exercise_bookings')->insert(['duration'=>$request->duration,'date'=>Carbon::now(),'booking_id'=>$request->user_id,
             'exercise_id'=>$request->exercise_id]);
         return redirect()->route('assign');
