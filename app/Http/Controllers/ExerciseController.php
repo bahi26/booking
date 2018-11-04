@@ -7,12 +7,15 @@ use App\employee;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
+use Storage;
 
 class ExerciseController extends Controller
 {
     //
     public function view()
     {
+
+
         $exercises = exercise::all();
         $data = array('exercises' => $exercises);
         return view('Exercise.view', $data);
@@ -29,7 +32,23 @@ class ExerciseController extends Controller
             $exercise->duration=$request->input("duration");
             $exercise->calories=$request->input("calories");
             $exercise->employee_id=$request->input("employee_id");
+            $exercise->description=$request->input("description");
+            $date=Carbon::now()->micro;
+            if(!empty($request->file('image')))
+            {
 
+                $request->file('image')->storeAs(
+                    'public/ExerciseImages', $date.'.jpg'
+                );
+                $exercise->photo=$date.'.jpg';
+            }
+            if(!empty($request->file('image')))
+            {
+                $request->file('video')->storeAs(
+                    'public/ExerciseVideos', $date.'.mp4'
+                );
+                $exercise->video=$date.'.mp4';
+            }
             $exercise->save();
 
 
@@ -81,7 +100,10 @@ class ExerciseController extends Controller
     {
         $exercise=DB::table('exercises')->where('id',$id)->get();
         $employees = employee::where('type',"=",'freelancer')->get();
+        $exercise[0]->photo=Storage::url('ExerciseImages/'.$exercise[0]->photo);
+        $exercise[0]->video = Storage::url('exerciseVideos/'.$exercise[0]->video);
         $data = array('exercise' => $exercise[0],'employees'=>$employees);
+
       //  return $data;
         return view('Exercise.edit',$data);
     }
@@ -105,6 +127,27 @@ class ExerciseController extends Controller
             DB::table('exercises')->where('id',$id)->update(['employee_id'=>$request->employee_id]);
         if(!empty($request->calories))
             DB::table('exercises')->where('id',$id)->update(['calories'=>$request->calories]);
+        if(!empty($request->description))
+            DB::table('exercises')->where('id',$id)->update(['description'=>$request->description]);
+        $data=DB::table('exercises')->where('id',$id)->get();
+        $date=Carbon::now()->micro;
+
+        if(!empty($request->file('image')))
+        {
+            $request->file('image')->storeAs(
+                'public/ExerciseImages', $date.'.jpg'
+            );
+            Storage::delete('public/ExerciseImages/'.$data[0]->photo);
+            DB::table('exercises')->where('id',$id)->update(['photo'=>$date.'.jpg']);
+        }
+        if(!empty($request->file('image')))
+        {
+            $request->file('video')->storeAs(
+                'public/ExerciseVideos', $date.'.mp4'
+            );
+            Storage::delete('public/ExerciseVideos/'.$data[0]->video);
+            DB::table('exercises')->where('id',$id)->update(['video'=>$date.'.mp4']);
+        }
         return redirect()->route('editExercise', [$id]);
     }
 
