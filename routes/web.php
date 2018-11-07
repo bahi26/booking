@@ -45,7 +45,9 @@ Route::get('/createEmployee','EmployeeController@create');
 Route::post('/createEmployee','EmployeeController@create');
 
 Route::get('/viewExercise','ExerciseController@view');
+Route::get('/viewExercise/{id}','ExerciseController@show');
 Route::get('/createExercise','ExerciseController@create');
+Route::get('/deleteExercise/{id}','ExerciseController@destroy');
 Route::post('/createExercise','ExerciseController@create');
 Route::get('/assign',['as'=>'assign','uses'=>'ExerciseController@get_users']);
 Route::post('/assign','ExerciseController@assign');

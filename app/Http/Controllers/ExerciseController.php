@@ -14,19 +14,17 @@ class ExerciseController extends Controller
     //
     public function view()
     {
-
-
         $exercises = exercise::all();
         $data = array('exercises' => $exercises);
-        return view('Exercise.view', $data);
+        return view('Exercise.viewExercise', $data);
     }
     public function create(Request $request)
     {
         $employees = employee::where('type',"=",'freelancer')->get();
-
-
+       // return $request;
         if($request->isMethod('post'))
         {
+           // return $request;
             $exercise=new exercise();
             $exercise->name=$request->input("name");
             $exercise->duration=$request->input("duration");
@@ -56,7 +54,7 @@ class ExerciseController extends Controller
         }
         $data = array('employees' => $employees);
 
-        return view('Exercise.create',$data);
+        return view('Exercise.createExercise',$data);
     }
     public function index()
     {
@@ -81,8 +79,12 @@ class ExerciseController extends Controller
     {
 
         $exercise=DB::table('exercises')->where('id',$id)->get();
-        $data = array('exercise' => $exercise);
-        return view('Exercise.edit',$data);
+        $employees = employee::where('type',"=",'freelancer')->get();
+        $exercise[0]->photo=Storage::url('ExerciseImages/'.$exercise[0]->photo);
+        $exercise[0]->video = Storage::url('exerciseVideos/'.$exercise[0]->video);
+        $data = array('exercise' => $exercise[0],'employees'=>$employees);
+
+        return view('Exercise.detailsExercise',$data);
     }
     public function get()
     {
@@ -105,7 +107,7 @@ class ExerciseController extends Controller
         $data = array('exercise' => $exercise[0],'employees'=>$employees);
 
       //  return $data;
-        return view('Exercise.edit',$data);
+        return view('Exercise.updateExercise',$data);
     }
 
     /**
@@ -182,7 +184,7 @@ class ExerciseController extends Controller
     public function destroy($id)
     {
         Exercise::where('id', $id)->delete();
-        return response()->json('success',200);
+        return redirect("/viewExercise");
 
     }
 }
