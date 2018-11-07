@@ -8,22 +8,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Erp, Allied Consulting , Erp Courses , Sap , IOT , Gis, Consulting, Support, Training,Outsourcing,Development,Integration,Application,SAP Consultancy , Technical Support" />
 
-    <link href="css/bootstrap.css" rel="stylesheet" id="">
-    <link rel="shortcut icon" type="image/png" href="images/newlogo.png" />
+    <link href="/css/bootstrap.css" rel="stylesheet" id="">
+    <link rel="shortcut icon" type="image/png" href="/images/newlogo.png" />
 
 
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/styleSlider.css">
-    <link rel="stylesheet" href="css/squad.css">
-    <link rel="stylesheet" href="css/popUp.css">
-    <link rel="stylesheet" href="css/form.css">
-    <link rel="stylesheet" href="css/VE.css">
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="/css/styleSlider.css">
+    <link rel="stylesheet" href="/css/squad.css">
+    <link rel="stylesheet" href="/css/popUp.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/VE.css">
 
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!-- js -->
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
     <!-- //js -->
-    <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-3.1.1.min.js"></script>
 
 
     <!-- Spectrum -->
@@ -32,16 +32,16 @@
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
     <!--animate-->
-    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-    <script src="js/wow.min.js"></script>
+    <link href="/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/js/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
     <!--//end-animate-->
-    <link href="css/profile.css" rel="stylesheet" id="bootstrap-css">
+    <link href="/css/profile.css" rel="stylesheet" id="bootstrap-css">
 
-    <script src="js/bootstrap-3.1.1.min.js"></script>
-    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="/js/bootstrap-3.1.1.min.js"></script>
+    <script src="/js/jquery-2.1.4.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 </head>
 
