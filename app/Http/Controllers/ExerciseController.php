@@ -155,25 +155,40 @@ class ExerciseController extends Controller
 
     public function assign(Request $request)
     {
-        if(empty($request->user_id))
-            return;
-        if(empty($request->exercise_id))
-            return;
-        DB::table('exercise_bookings')->insert(['duration'=>$request->duration,'date'=>Carbon::now(),'booking_id'=>$request->user_id,
-            'exercise_id'=>$request->exercise_id]);
+
+        if(isset($request->exercise_id)&&isset($request->id))
+        {
+            foreach ($request->id as $id)
+             DB::table('exercise_bookings')->insert(['duration'=>0,'date'=>Carbon::now(),'booking_id'=>$id,
+                 'exercise_id'=>$request->exercise_id]);
+        }
         return redirect()->route('assign');
     }
 
     public function get_users()
     {
         $users=DB::table('bookings')->join('users','users.id','=','bookings.id')
-            ->leftJoin('exercise_bookings','exercise_bookings.booking_id','=','bookings.id')
-            ->leftjoin('exercises','exercise_bookings.exercise_id','=','exercises.id')->select('bookings.id','exercise_bookings.exercise_id',
-                'exercise_bookings.duration','exercises.name','users.name','users.email')->get();
+            ->select('bookings.id','users.name','users.email')->orderBy('bookings.id')->get();
         $exercises=DB::table('exercises')->get();
         $data = array('exercises' => $exercises,'users'=>$users);
        // return $data;
-        return view('Exercise.assign',$data);
+        return view('Exercise.assignExercise',$data);
+    }
+    public function track($id)
+    {
+        $users=DB::table('bookings')->join('users','users.id','=','bookings.id')
+            ->rightJoin('exercise_bookings','exercise_bookings.booking_id','=','bookings.id')->orderBy('exercise_bookings.date')
+            ->where('exercise_bookings.exercise_id','=',$id)
+            ->select('exercise_bookings.id','exercise_bookings.exercise_id','exercise_bookings.date','users.name','users.email')->get();
+        $exercises=DB::table('exercises')->where('id',$id)->get();
+        $data = array('exercise' => $exercises[0],'users'=>$users);
+        return view('exercise.track',$data);
+    }
+    public function delete_assign($id)
+    {
+        $ex=DB::table('exercise_bookings')->where('id', $id)->get();
+        DB::table('exercise_bookings')->where('id', $id)->delete();
+        return redirect()->route('trackExercise', [$ex[0]->exercise_id]);
     }
     /**
      * Remove the specified resource from storage.

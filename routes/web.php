@@ -51,6 +51,8 @@ Route::get('/deleteExercise/{id}','ExerciseController@destroy');
 Route::post('/createExercise','ExerciseController@create');
 Route::get('/assign',['as'=>'assign','uses'=>'ExerciseController@get_users']);
 Route::post('/assign','ExerciseController@assign');
+Route::get('/unassign/{id}','ExerciseController@delete_assign');
+Route::get('/trackExercise/{id}',['as'=>'trackExercise','uses'=>'ExerciseController@track']);
 Route::get('/editExercise/{id}','ExerciseController@edit');
 Route::post('/editExercise/{id}',['as'=>'editExercise','uses'=>'ExerciseController@update']);
 
